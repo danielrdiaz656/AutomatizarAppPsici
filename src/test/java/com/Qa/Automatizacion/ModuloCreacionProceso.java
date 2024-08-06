@@ -199,7 +199,7 @@ public class ModuloCreacionProceso extends Base {
 	   
 		 WebDriverWait wait = new WebDriverWait(driver,10);
 		 wait.until(ExpectedConditions.visibilityOfElementLocated(AcptarProceso));
-	   
+		 
 	   click(AcptarProceso);
 	   
    }

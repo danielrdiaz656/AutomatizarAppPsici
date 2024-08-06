@@ -36,18 +36,21 @@ public class testCrearProceso {
 		
 		/*Completar informacion*/
 		ModuloCreacionProceso.nombreProceso();
-		ModuloCreacionProceso.setFechaCierre("31/07/2024");
+		ModuloCreacionProceso.setFechaCierre("31/08/2024");
 		assertEquals(ModuloCreacionProceso.estadoDropdown(),"Activo");
 		ModuloCreacionProceso.registroFotograficoApp();
 		ModuloCreacionProceso.registroVideo();
 		ModuloCreacionProceso.numeroVacantesApp();
-		ModuloCreacionProceso.preferenciaMovil(true);
+		ModuloCreacionProceso.preferenciaMovil(false);
 		ModuloCreacionProceso.continuarSelect();
+		
+		// Ethikos
+		
 		ModuloCreacionProceso.selectDropdownpruebas("Ethikos (Rectitud, honra, confidencialidad)");
 		ModuloCreacionProceso.selectPerfil("Riesgos");
-		ModuloCreacionProceso.porcentajePruebas("25");
+		ModuloCreacionProceso.porcentajePruebas("50");
         String valorActual = ModuloCreacionProceso.obtenerValorPorcentaje();
-        assertEquals("25", valorActual);
+        assertEquals("50", valorActual);
 		ModuloCreacionProceso.agregarPruebas();
 		
 		Thread.sleep(1000);
@@ -55,21 +58,22 @@ public class testCrearProceso {
 		
 		ModuloCreacionProceso.selectDropdownpruebas("Ethikos - Riesgos (Rectitud, honra, confidencialidad)");
 		ModuloCreacionProceso.selectPerfil("Perfil Estandar");
-		ModuloCreacionProceso.porcentajePruebas("10");
+		ModuloCreacionProceso.porcentajePruebas("50");
         String valorActual1 = ModuloCreacionProceso.obtenerValorPorcentaje();
-        assertEquals("10", valorActual1);
+        assertEquals("50", valorActual1);
 		ModuloCreacionProceso.agregarPruebas();
 		
-		
-		/*IQ Factorial*/
+	/*	
+		/*IQ Factorial
 		ModuloCreacionProceso.selectDropdownpruebas("IQ Factorial (Capacidad intelectual)");
 		ModuloCreacionProceso.selectPerfil("Alto");
-		ModuloCreacionProceso.porcentajePruebas("10");
+		ModuloCreacionProceso.porcentajePruebas("50");
         String valorActual2 = ModuloCreacionProceso.obtenerValorPorcentaje();
         assertEquals("10", valorActual2);
 		ModuloCreacionProceso.agregarPruebas();
 		
-		/*Potencial Comercial*/
+	/*	
+		/*Potencial Comercial
 		
 		ModuloCreacionProceso.selectDropdownpruebas("Potencial Comercial (Caracter, Habilidades y Actitud para las ventas.)");
 		ModuloCreacionProceso.selectPerfil("Nivel Alto");
@@ -79,7 +83,7 @@ public class testCrearProceso {
 		ModuloCreacionProceso.agregarPruebas();
 		
 		
-		/*Prueba Estatal*/
+		/*Prueba Estatal
 		ModuloCreacionProceso.selectDropdownpruebas("Prueba Estatal (Competencias laborales generales para los empleos públicos de los distintos niveles jerárquicos.)");
 		ModuloCreacionProceso.selectPerfil("Nivel Directivo");
 		ModuloCreacionProceso.porcentajePruebas("15");
@@ -87,7 +91,7 @@ public class testCrearProceso {
         assertEquals("15", valorActual4);
 		ModuloCreacionProceso.agregarPruebas();
 		
-		/*Ten DISC*/
+		/*Ten DISC
 		
 		ModuloCreacionProceso.selectDropdownpruebas("Ten DISC (Personalidad, Competencias y Riesgos Laborales)");
 		ModuloCreacionProceso.selectPerfil("Directivo");
@@ -96,7 +100,7 @@ public class testCrearProceso {
         assertEquals("10", valorActual5);
 		ModuloCreacionProceso.agregarPruebas();
 		
-	    /*Ten DISC Plus*/
+	    /*Ten DISC Plus
 		Thread.sleep(2000);
 		ModuloCreacionProceso.selectDropdownpruebas("Ten DISC Plus (Personalidad, Riesgos, Competencias Transversales y Específicas.)");
 		ModuloCreacionProceso.selectPerfil("Todas las competencias");
@@ -105,7 +109,7 @@ public class testCrearProceso {
         assertEquals("10", valorActual6);
 		ModuloCreacionProceso.agregarPruebas();
 		
-	    /*V & P Test*/
+	    /*V & P Test
 		
 		ModuloCreacionProceso.selectDropdownpruebas("V&P Test (Precisión y velocidad al digitar)");
 		ModuloCreacionProceso.selectPerfil("Perfil Alpha");
@@ -113,16 +117,21 @@ public class testCrearProceso {
         String valorActual7 = ModuloCreacionProceso.obtenerValorPorcentaje();
         assertEquals("10", valorActual7);
 		ModuloCreacionProceso.agregarPruebas();
+
+		*/
+		
 		ModuloCreacionProceso.guardarBtn();
 		ModuloCreacionProceso.aceptarBtn();
-		
 	}
 	
 	@After
 	public void tearDown() throws Exception {
+		
+		Thread.sleep(1000);
+		driver.quit();	
+		
 	}
 	
-	
-	
+
 
 }

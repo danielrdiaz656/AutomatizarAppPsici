@@ -42,6 +42,14 @@ public class Base {
     By selectPrueba = By.id("prueba");
     By selectPerfil = By.id("perfil");
     
+    /**/
+    
+    By usernameLocatorGoo = By.id("identifierId");
+    By siguienteButton = By.xpath("//button//span[text()='Siguiente']");
+
+    By passwordLocatorGoo = By.xpath("//input[@type='password' and @name='Passwd']");
+
+    
     
 	public Base(WebDriver driver) {
 		this.driver = driver;
@@ -309,5 +317,36 @@ public class Base {
     	return getText(selectpefil.getFirstSelectedOption());
     	
     }
+
+    /*Login Google*/
+    
+    
+    public void visitGoogle(String url) throws InterruptedException {
+        driver.get(url);
+        loginIfNeededGoogle();
+        Thread.sleep(2000);
+    	WebDriverWait wait = new WebDriverWait(driver,10);
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(passwordLocatorGoo));
+        loginIfNeededGooglepass();
+    }
+
+    // Método para realizar el login si se detecta que la página de login está presente
+
+    public void loginIfNeededGoogle() {
+        if (isDisplayed(usernameLocatorGoo)) {
+            type("riocardoperez@gmail.com", usernameLocatorGoo);
+            click(siguienteButton);
+        }
+    }
+    
+    public void loginIfNeededGooglepass() {
+        if (isDisplayed(passwordLocatorGoo)) {
+            type("Daniel123+", passwordLocatorGoo);
+            click(siguienteButton);
+        }
+    }
+    
+    
+    
     
 }

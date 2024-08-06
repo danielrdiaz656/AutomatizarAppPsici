@@ -33,6 +33,25 @@ public class ModuloEditarProceso extends Base {
     By opcionMovil = By.xpath("//div[text()='Registro fotográfico']/ancestor::label");
     By opcionVideo = By.xpath("//div[text()='Videograbación']/ancestor::label");
     By continuar = By.xpath("//button[@onclick='continuarOpcionCamara();']");
+    
+    /*Eliminar tipos de pruebas agendadas */
+    
+    By eliminarBtnPrueba = By.xpath("//button[contains(@class, 'btn-danger') and contains(@onclick, 'retirarPrueba')]");
+    
+    
+    /*Localizador Pruebas*/
+    
+    By pruebasLocator = By.xpath("//h6[text()='Pruebas']");
+    By seleccionarPrueba = By.id("prueba");
+    By seleccionarPerfil = By.id("perfil");
+    By porcentualPrueba =  By.cssSelector("input[placeholder='Ingrese el valor de la prueba en porcentaje']");
+    By agregarPorcentaje = By.xpath("//button[@onclick='agregarPrueba()']");
+    
+	By agregarPrueba = By.xpath("//button[contains(@class, 'btn-tertiary') and contains(@onclick,'agregarPrueba()' )]");
+   
+	By guardarId = By.id("btn_crear");
+	By AcptarProceso = By.xpath("//button[contains (@class,'swal2-confirm')]");
+	
 	
 	
 	public ModuloEditarProceso(WebDriver driver) {
@@ -142,6 +161,76 @@ public class ModuloEditarProceso extends Base {
    public void continuarSelect () {
 	   
 	   click(continuar);
+	   
+   }
+   
+   /*Elimianr pruebas*/
+
+   public void elimianrTipoPrueba() {
+
+	   WebDriverWait wait = new WebDriverWait(driver,10);
+	   wait.until(ExpectedConditions.visibilityOfElementLocated(eliminarBtnPrueba));
+	   click(eliminarBtnPrueba);
+	   
+   
+   }
+   
+   
+   /*Agregar pruebas*/
+   
+  public void selectDropdownpruebas(String test) {
+	  
+	   
+	   /*WebDriverWait wait = new WebDriverWait(driver,10);
+	   wait.until(ExpectedConditions.visibilityOfElementLocated(pruebasLocator));
+	   
+	   Select selectlsit = new Select(findElement(seleccionarPrueba));
+	   selectlsit.selectByVisibleText("Ethikos (Rectitud, honra, confidencialidad)");
+	   return getText(selectlsit.getFirstSelectedOption());*/
+	   
+	   selectPruebasApp(test);
+	   
+   }
+   
+   
+   public void selectPerfil(String prueba) throws InterruptedException {
+	   Thread.sleep(1500);
+	   perfilApp(prueba);
+	   
+   }
+   
+   public void porcentajePruebas (String porcentaje) {
+	   WebElement test = findElement(porcentualPrueba);
+	   test.clear();
+	   type(porcentaje,porcentualPrueba);
+      
+	   
+   
+   }
+   
+   public String obtenerValorPorcentaje() {
+       return driver.findElement(porcentualPrueba).getAttribute("value");
+   }
+   
+   
+   public void agregarPruebas() {
+	   
+	   click(agregarPrueba);
+	   
+   }
+   
+   public void guardarBtn() {
+	   
+	   click(guardarId);
+	   
+   }
+   
+   public void aceptarBtn () {
+	   
+		 WebDriverWait wait = new WebDriverWait(driver,10);
+		 wait.until(ExpectedConditions.visibilityOfElementLocated(AcptarProceso));
+	   
+	   click(AcptarProceso);
 	   
    }
    

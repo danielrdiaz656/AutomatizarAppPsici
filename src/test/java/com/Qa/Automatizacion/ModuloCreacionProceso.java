@@ -93,7 +93,7 @@ public class ModuloCreacionProceso extends Base {
     
     public void numeroVacantesApp() {
     	
-    	type("4",numeroVacantes);
+    	type("1",numeroVacantes);
     	
     }
 	

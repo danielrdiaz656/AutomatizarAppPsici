@@ -11,8 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class pruebaPotencial extends Base {
 	
 	
-	By emailLocator = By.xpath("//tr[@jscontroller='ZdOxDb' and @jsmodel='nXDxbd' and @role='row' and @tabindex='-1']");
-
+	//By emailLocator = By.xpath("//tr[@jscontroller='ZdOxDb' and @jsmodel='nXDxbd' and @role='row' and @tabindex='-1']");
+	By emailLocator = By.xpath("//span[@class=\"bog\"]");
 
 	public pruebaPotencial(WebDriver driver) {
 		super(driver);
@@ -21,11 +21,24 @@ public class pruebaPotencial extends Base {
 	
 	public void correoFirts () throws InterruptedException {
 	
-		Thread.sleep(2000);
-        WebDriverWait wait = new WebDriverWait(driver, 15);
-        WebElement emailElement = wait.until(ExpectedConditions.elementToBeClickable(emailLocator));
-        Actions actions = new Actions(driver);
-        actions.moveToElement(emailElement).click().perform();
+		WebDriverWait wait = new WebDriverWait(driver,10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(emailLocator));
+	    click(emailLocator);
+	    
+
+
+	  /* 
+	   WebDriverWait wait = new WebDriverWait(driver, 15);
+	    WebElement emailElement = wait.until(ExpectedConditions.elementToBeClickable(emailLocator)); 
+	   * 
+	   * 
+	   * if (emailElement.isDisplayed() && emailElement.isEnabled()) {
+	        JavascriptExecutor js = (JavascriptExecutor) driver;
+	        js.executeScript("arguments[0].click();", emailElement);
+	    } else {
+	        System.out.println("El elemento no es interactuable.");
+	    }*/
 	}
 
+	    
 }

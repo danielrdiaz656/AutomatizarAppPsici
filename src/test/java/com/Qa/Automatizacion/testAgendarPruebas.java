@@ -17,7 +17,7 @@ public class testAgendarPruebas {
 		
 		ModuloAgendarPruebas = new ModuloAgendarPruebas(driver);
 		driver = ModuloAgendarPruebas.chromeDriverConnection();
-		ModuloAgendarPruebas.visit("https://app.psicoalianza.com/auth/loginvoc?username=Danielproduccion&password=danieleltravieso");
+		ModuloAgendarPruebas.visit("https://app1.psicoalianza.com/auth/loginvoc?username=Lady.Janeth.poveda&password=laclavedelusuario");
 		
 	}
 

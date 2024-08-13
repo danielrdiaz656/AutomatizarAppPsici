@@ -20,13 +20,22 @@ public class testPruebaPotencial {
 
 	@Before
 	public void setUp() throws Exception {
-		
+		System.out.println("Qa1");
 		pruebaPotencial = new pruebaPotencial(driver);
 		driver = pruebaPotencial.chromeDriverConnection();
+	    if (driver == null) {
+	        System.out.println("Error: El WebDriver no se inicializó correctamente.");
+	        return;
+	    }
+		System.out.println("Qa2");
 		pruebaPotencial.visitGoogle("https://accounts.google.com/");
-		Thread.sleep(2000);
-		pruebaPotencial.visitGoogle("https://mail.google.com/mail/u/0/#inbox");
-		
+		Thread.sleep(1000);
+		System.out.println("Qa3");
+		Thread.sleep(1000);
+        System.out.println("Qa4");
+		driver.get("https://mail.google.com/mail/u/0/#inbox");
+		System.out.println("Qa5");
+
 	}
 
 
@@ -35,7 +44,6 @@ public class testPruebaPotencial {
 	public void test() throws InterruptedException {
            
 		pruebaPotencial.correoFirts();
-		
 		
 	}
 	

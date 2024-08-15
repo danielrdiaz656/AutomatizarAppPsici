@@ -21,7 +21,7 @@ public class testCrearProceso {
 		
 		ModuloCreacionProceso = new ModuloCreacionProceso(driver);
 		driver = ModuloCreacionProceso.chromeDriverConnection();
-		ModuloCreacionProceso.visit("https://app1.psicoalianza.com/auth/loginvoc?username=Lady.Janeth.poveda&password=laclavedelusuario");
+		ModuloCreacionProceso.visit("https://app.psicoalianza.com/auth/loginvoc?username=Danielproduccion&password=danieleltravieso");
 		
 	}
  

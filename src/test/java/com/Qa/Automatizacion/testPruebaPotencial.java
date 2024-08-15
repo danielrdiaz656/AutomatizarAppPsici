@@ -44,6 +44,60 @@ public class testPruebaPotencial {
 	public void test() throws InterruptedException {
            
 		pruebaPotencial.correoFirts();
+		pruebaPotencial.comenzarQa();
+		pruebaPotencial.potencialTestStart();
+		pruebaPotencial.activarCamara();
+		pruebaPotencial.continuarPrueba();
+		pruebaPotencial.tomarFotoQa();
+		pruebaPotencial.continuarPrueba();
+		/*13%*/
+		pruebaPotencial.continuarQaTest();
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*19%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*25%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*31%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*38%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*44%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*50%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*56%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*63%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*69%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*75%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*81%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*88%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*94%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*100%*/
+		pruebaPotencial.seleccionarTodasLasA();
+		pruebaPotencial.continuarQaTest();
+		/*Fin*/
+		pruebaPotencial.finTest();
 		
 	}
 	

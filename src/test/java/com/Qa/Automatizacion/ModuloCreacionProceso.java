@@ -49,6 +49,7 @@ public class ModuloCreacionProceso extends Base {
    
 	By guardarId = By.id("btn_crear");
 	By AcptarProceso = By.xpath("//button[contains (@class,'swal2-confirm')]");
+
 	
 	
 	
@@ -203,6 +204,10 @@ public class ModuloCreacionProceso extends Base {
 	   click(AcptarProceso);
 	   
    }
+   
+   
+   
+   
    
 }
 

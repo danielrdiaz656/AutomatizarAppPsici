@@ -58,9 +58,6 @@ public class Base {
 
 	public WebDriver chromeDriverConnection() throws Exception {
 		
-
-		
-		
         // Establecer la ruta a tu ejecutable de ChromeDriver
         System.setProperty("webdriver.chrome.driver", "./src/test/resources/chromedriver/chromedriver.exe");
 
@@ -77,31 +74,13 @@ public class Base {
         options.addArguments("--disable-features=NetworkService,NetworkServiceInProcess");
         options.addArguments("--disable-features=VizDisplayCompositor");
         options.addArguments("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, como Gecko) Chrome/91.0.4472.124 Safari/537.36");
+        options.addArguments("use-fake-ui-for-media-stream");
 
         // Inicializar ChromeDriver con las opciones configuradas
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
        // return driver;
 		return driver;
-        
-        
-      /*  
-        com.fast.captcha.model.FastCaptchaResponse response = com.fast.captcha.CaptchaSolver.solve(apiKey, "6LfN8HslAAAAAAmFU_at90iDnUlbH6yvcv2lvhHf", "https://app.psicoalianza.com/auth/login");
-        if(!"SUCCESS".equals(response.getStatus())) {
-        	LOGGER.error("Response is not successful {}", response);
-            throw new RuntimeException("Captcha solution not found.");
-        }
-       
-        
-        String solution = response.getSolution();
-        //enter it in text area
-        WebElement captchaSolutionElement = driver.findElement(By.id("g-recaptcha-response"));
-        String javaScript = "arguments[0].style.height = 'auto'; arguments[0].style.display = 'block';";
-        ((JavascriptExecutor) driver).executeScript(javaScript, captchaSolutionElement);
-        captchaSolutionElement.sendKeys(solution);
-        
-		return driver;
-         **/
         
 	}
 	
@@ -152,7 +131,7 @@ public class Base {
     		
     		return false;
     		
-    	}	   	
+    	}	 	
     	
     }
     // encargado de resivir la URL y abrir la pagina
@@ -327,6 +306,7 @@ public class Base {
         Thread.sleep(2000);
     	WebDriverWait wait = new WebDriverWait(driver,10);
     	wait.until(ExpectedConditions.visibilityOfElementLocated(passwordLocatorGoo));
+    	Thread.sleep(2000);
         loginIfNeededGooglepass();
     }
 
@@ -334,14 +314,14 @@ public class Base {
 
     public void loginIfNeededGoogle() {
         if (isDisplayed(usernameLocatorGoo)) {
-            type("riocardoperez@gmail.com", usernameLocatorGoo);
+            type("preutest2634548787rodrigo.lar@gmail.com", usernameLocatorGoo);
             click(siguienteButton);
         }
     }
     
     public void loginIfNeededGooglepass() {
         if (isDisplayed(passwordLocatorGoo)) {
-            type("Daniel123+", passwordLocatorGoo);
+            type("Daniel1234*", passwordLocatorGoo);
             click(siguienteButton);
         }
     }

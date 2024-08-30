@@ -161,6 +161,8 @@ public class ModuloEditarProceso extends Base {
 	
    public void continuarSelect () {
 	   
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(continuar));
 	   click(continuar);
 	   
    }

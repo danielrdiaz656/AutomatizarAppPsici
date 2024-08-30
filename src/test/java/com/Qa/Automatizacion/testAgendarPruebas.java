@@ -35,7 +35,7 @@ public class testAgendarPruebas {
 		ModuloAgendarPruebas.agendarCanditado();
 		ModuloAgendarPruebas.cargaMasivaBtn();
 		ModuloAgendarPruebas.archivoDesQa();
-		ModuloAgendarPruebas.subirArchivo("C:\\Users\\danie\\eclipse-workspace\\AutomatizacionAppAnterior\\Archivos\\PsicoAlianza_Carga_Masiva_Candidatos.xlsx");
+		ModuloAgendarPruebas.subirArchivo("C:\\Users\\QA Tester\\eclipse-workspace\\Qa.App\\Archivos\\PsicoAlianza_Carga_Masiva_Candidatos.xlsx");
 		ModuloAgendarPruebas.enviarBtn();
 		ModuloAgendarPruebas.agendarBtnApp();
 		ModuloAgendarPruebas.confirmarAgendamiento();

@@ -66,7 +66,8 @@ public class ModuloCreacionProceso extends Base {
 	}
 	
 	public void gestionarProceso () {
-		
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(gestionarProceso));
 		click(gestionarProceso);
 	}
 	

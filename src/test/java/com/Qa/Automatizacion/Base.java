@@ -1,9 +1,12 @@
 package com.Qa.Automatizacion;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -325,6 +328,55 @@ public class Base {
             click(siguienteButton);
         }
     }
+    
+    // Metodo para buscar localizador y dar clic al elemento al filtrar
+    
+    public void aplicarFiltroApp (By findLocater , String idFiltros)  {
+    	
+    	WebElement campofiltro = driver.findElement(findLocater);
+    	campofiltro.clear();
+    	campofiltro.sendKeys(idFiltros);
+    	campofiltro.sendKeys(Keys.ENTER);    
+    	
+    }
+    
+    public void validarFiltrado (By valueLocator, String valorEsperado) throws InterruptedException {
+    	
+    	WebDriverWait wait = new WebDriverWait (driver,10);
+    	
+    	// Espera que el localizaador con el elemento filtrado sea visible
+    	WebElement valorFiltrado = wait.until(ExpectedConditions.visibilityOfElementLocated(valueLocator));
+    	
+    	// obtiene el texto con get y limpa espacios por si algo con trim
+    	String valorActual = valorFiltrado.getText().trim();
+    	//genera la validacion
+    	assertEquals("El valor Filtrado no coincide",valorEsperado,valorActual);
+    	
+    	
+    	
+    }
+    
+    public void metodoFechaFiltro (String creacion, By locaterFiltro, By locater1, By locater2 , By aplicar) throws InterruptedException {
+    	
+		// Clic en el input de fecha
+		click(locaterFiltro);
+		
+		// fecha de inicio 
+		WebElement create1 = driver.findElement(locater1);		
+		click(locater1);
+		create1.clear();
+		create1.sendKeys(creacion);
+		// fecha fin
+		WebElement create2 = driver.findElement(locater2);
+		click(locater2);
+		create2.clear();
+		create2.sendKeys(creacion);	
+		// Aplicar
+		click(aplicar);
+    	
+    	
+    }
+    
     
     
     

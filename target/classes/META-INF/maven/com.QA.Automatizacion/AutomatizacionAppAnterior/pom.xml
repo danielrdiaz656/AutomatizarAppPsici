@@ -48,6 +48,11 @@
      	<artifactId>demo</artifactId>
      	<version>0.0.1-SNAPSHOT</version>
      </dependency>-->
+ <dependency>
+ 	<groupId>AppAutomatizacion</groupId>
+ 	<artifactId>App.Automatizacion.Qa</artifactId>
+ 	<version>0.0.1-SNAPSHOT</version>
+ </dependency>
     </dependencies>
   
 </project>

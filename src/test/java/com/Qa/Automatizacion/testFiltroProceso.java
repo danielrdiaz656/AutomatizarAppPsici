@@ -63,7 +63,7 @@ public class testFiltroProceso {
 		ModuloFiltroProceso.vacantesFiltros("3");
 		ModuloFiltroProceso.validarVacantes("3");
 		
-		
+		/*Validar estado*/
 		ModuloFiltroProceso.gestionarClic();
 		ModuloFiltroProceso.estadosFiltros("Atrasado");
 		ModuloFiltroProceso.validarEstados("Atrasado");
@@ -71,9 +71,25 @@ public class testFiltroProceso {
 		ModuloFiltroProceso.validarEstados("Activo");
 		ModuloFiltroProceso.estadosFiltros("Finalizado");
 		ModuloFiltroProceso.validarEstados("Finalizado");
-		
+		/*Valdiar paginado*/
 		ModuloFiltroProceso.gestionarClic();
 		ModuloFiltroProceso.paginadoSeleccion("100");
+		ModuloFiltroProceso.validarTextoPaginado(100);
+		
+		
+		ModuloFiltroProceso.gestionarClic();
+		ModuloFiltroProceso.paginadoSeleccion("50");
+		ModuloFiltroProceso.validarTextoPaginado(50);
+		
+		ModuloFiltroProceso.gestionarClic();
+		ModuloFiltroProceso.paginadoSeleccion("20");
+		ModuloFiltroProceso.validarTextoPaginado(20);
+		
+		ModuloFiltroProceso.gestionarClic();
+		ModuloFiltroProceso.paginadoSeleccion("10");
+		ModuloFiltroProceso.validarTextoPaginado(10);
+		
+		ModuloFiltroProceso.descargarExcel();
 	}
 	
 	@After

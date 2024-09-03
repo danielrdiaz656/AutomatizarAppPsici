@@ -1,6 +1,7 @@
 package com.Qa.Automatizacion;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -54,6 +55,8 @@ public class ModuloFiltroProceso extends Base {
 	/*Localizadores paginado*/
 	
 	By paginadoQa = By.xpath("//select[@name='Procesos[filters][records_per_page]']");
+	
+	By paginadoTextoLocator = By.cssSelector("span.showing_records");
 	
 	
 	
@@ -201,26 +204,28 @@ public class ModuloFiltroProceso extends Base {
 		
 	}
 	
-	public String paginadoSeleccion (String paginado) {
+	public String paginadoSeleccion(String paginado) {
 		
-	    WebDriverWait wait = new WebDriverWait(driver, 10);
-
-	    try {
-	        WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(paginadoQa));
-	        Select selectList = new Select(dropdown);
-	        selectList.selectByVisibleText(paginado);
-	        return selectList.getFirstSelectedOption().getText();
-	    } catch (StaleElementReferenceException e) {
-	        // Reintentar una vez si ocurre StaleElementReferenceException
-	        WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(paginadoQa));
-	        Select selectList = new Select(dropdown);
-	        selectList.selectByVisibleText(paginado);
-	        return selectList.getFirstSelectedOption().getText();
-	    }
+		return paginadoSele(paginado,paginadoQa);
 		
 	}
 	
 	
+	public void validarTextoPaginado(int registrosPorPagina) {
+		
+		
+	   validarPaginado(registrosPorPagina,paginadoTextoLocator);
+
+	}
 	
+	
+	
+	public void descargarExcel () {
+		
+		
+		click(descargarExcel);
+		
+		
+	}
 
 }

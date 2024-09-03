@@ -1,12 +1,14 @@
 package com.Qa.Automatizacion;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -340,21 +342,7 @@ public class Base {
     	
     }
     
-    public void validarFiltrado (By valueLocator, String valorEsperado) throws InterruptedException {
-    	
-    	WebDriverWait wait = new WebDriverWait (driver,10);
-    	
-    	// Espera que el localizaador con el elemento filtrado sea visible
-    	WebElement valorFiltrado = wait.until(ExpectedConditions.visibilityOfElementLocated(valueLocator));
-    	
-    	// obtiene el texto con get y limpa espacios por si algo con trim
-    	String valorActual = valorFiltrado.getText().trim();
-    	//genera la validacion
-    	assertEquals("El valor Filtrado no coincide",valorEsperado,valorActual);
-    	
-    	
-    	
-    }
+    // Metodo especifico para filtrar fecha
     
     public void metodoFechaFiltro (String creacion, By locaterFiltro, By locater1, By locater2 , By aplicar) throws InterruptedException {
     	
@@ -376,6 +364,87 @@ public class Base {
     	
     	
     }
+    
+    
+    // Metodo para validar el valor filtrado es el esparado, para input o campos fecha
+    
+    public void validarFiltrado (By valueLocator, String valorEsperado) throws InterruptedException {
+    	
+    	WebDriverWait wait = new WebDriverWait (driver,10);
+    	
+    	// Espera que el localizaador con el elemento filtrado sea visible
+    	WebElement valorFiltrado = wait.until(ExpectedConditions.visibilityOfElementLocated(valueLocator));
+    	
+    	// obtiene el texto con get y limpa espacios por si algo con trim
+    	String valorActual = valorFiltrado.getText().trim();
+    	//genera la validacion
+    	assertEquals("El valor Filtrado no coincide",valorEsperado,valorActual);
+    	
+    	
+    	
+    }
+    
+    
+    // Metedoto para selecionar pagiando.
+    
+    public String paginadoSele(String paginados, By locaterPaginado) {
+    
+    WebDriverWait wait =  new WebDriverWait(driver,10);
+    
+    	
+    try {
+    	WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(locaterPaginado));
+    	Select listPaginado = new Select(dropdown);
+    	listPaginado.selectByVisibleText(paginados);
+    	return listPaginado.getFirstSelectedOption().getText();
+    	
+    } catch (StaleElementReferenceException e){
+    	 // Reintentar una vez si ocurre StaleElementReferenceException
+    	WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(locaterPaginado));
+    	Select listPaginado = new Select(dropdown);
+    	listPaginado.selectByVisibleText(paginados);
+    	return listPaginado.getFirstSelectedOption().getText();
+    	
+    	
+    }	
+    	
+    }
+    
+    
+
+    
+    // Metodo para Validar paginadoes el correcto.
+    
+    public void validarPaginado(int regitrosEsperado, By locatorPaginado) {
+    	
+    	WebDriverWait wait = new WebDriverWait(driver,10);
+    	
+    	
+    	WebElement paginadoResultado = wait.until(ExpectedConditions.visibilityOfElementLocated(locatorPaginado));
+    	
+    	//Obteber resultado del paginado
+    	String foundSavePaginado = paginadoResultado.getText();
+    	
+    	// divide el texto en dos, tomando el "de" como separador y el [0] toma la primera parte del texto
+    	
+    	String textoMostrando = foundSavePaginado.split(" de ")[0];
+    	
+    	//Validar paginado obtenido, con el valor esperado
+    	String  textoEsperado = "Mostrando 1—" + regitrosEsperado;
+    	assertTrue("El texto del paginado no es correcto. Se esperaba: " + textoEsperado + "Se encontro: " + textoMostrando,
+    			textoMostrando.contains(textoEsperado)		
+    	);
+    	
+    	
+    	
+    	
+    	
+    	
+    }
+    
+    
+    
+    
     
     
     

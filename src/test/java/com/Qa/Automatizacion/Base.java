@@ -372,7 +372,7 @@ public class Base {
     	
     	WebDriverWait wait = new WebDriverWait (driver,10);
     	
-    	// Espera que el localizaador con el elemento filtrado sea visible
+    	// Espera que el localizador con el elemento filtrado sea visible
     	WebElement valorFiltrado = wait.until(ExpectedConditions.visibilityOfElementLocated(valueLocator));
     	
     	// obtiene el texto con get y limpa espacios por si algo con trim
@@ -434,15 +434,12 @@ public class Base {
     	assertTrue("El texto del paginado no es correcto. Se esperaba: " + textoEsperado + "Se encontro: " + textoMostrando,
     			textoMostrando.contains(textoEsperado)		
     	);
-    	
-    	
-    	
-    	
+
     	
     	
     }
     
-    
+    // 
     
     
     

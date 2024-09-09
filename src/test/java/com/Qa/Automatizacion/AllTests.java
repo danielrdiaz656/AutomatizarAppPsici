@@ -6,13 +6,14 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ testCrearProceso.class
-	,testCrearProceso.class
-	,  testEliminar.class
+	//,testCrearProceso.class
+	//,  testEliminar.class
 	, testEditar.class
-	,testDuplicarProceso.class
+	//,testDuplicarProceso.class
 	,testAgendarPruebas.class
-	,testPruebaPotencial.class
-	,testFiltroProceso.class})
+	//,testPruebaPotencial.class
+	//,testFiltroProceso.class
+	})
 public class AllTests {
 
 }

@@ -62,7 +62,7 @@ public class ModuloFiltroProceso extends Base {
 	
 	/*Localizadores Exportar Excel*/
 	By descargarExcel = By.id("label-exportar"); 
-	
+	By validarDescarExcel =  By.xpath("//h2[@class='page-header']//strong[contains(text(),'Gestionar procesos')]");
 	
 	
 	
@@ -227,5 +227,12 @@ public class ModuloFiltroProceso extends Base {
 		
 		
 	}
+	
+	public void validarExcel (String mensaje) throws InterruptedException {
+		
+		validarFiltrado(validarDescarExcel,mensaje);
+		
+	}
+	
 
 }

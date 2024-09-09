@@ -34,7 +34,7 @@ public class testEditar {
 		ModuloEditarProceso.editarclickApp();
 		
 		ModuloEditarProceso.nombreProceso();
-		ModuloEditarProceso.setFechaCierre("02/09/2024");
+		ModuloEditarProceso.setFechaCierre("02/10/2024");
 		ModuloEditarProceso.numeroVacantesApp();
 		ModuloEditarProceso.registroVideo();
 		ModuloEditarProceso.registroVideo();

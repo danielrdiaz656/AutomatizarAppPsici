@@ -44,6 +44,9 @@ public class testAgendarPruebas {
 	@After
 	public void tearDown() throws Exception {
 		
+		Thread.sleep(1000);
+		driver.quit();	
+		
 	}
 
 

@@ -36,7 +36,7 @@ public class testCrearProceso {
 		
 		/*Completar informacion*/
 		ModuloCreacionProceso.nombreProceso();
-		ModuloCreacionProceso.setFechaCierre("31/08/2024");
+		ModuloCreacionProceso.setFechaCierre("30/09/2024");
 		ModuloCreacionProceso.numeroVacantesApp();
 		assertEquals(ModuloCreacionProceso.estadoDropdown(),"Activo");
 		ModuloCreacionProceso.registroFotograficoApp();

@@ -90,6 +90,7 @@ public class testFiltroProceso {
 		ModuloFiltroProceso.validarTextoPaginado(10);
 		
 		ModuloFiltroProceso.descargarExcel();
+		ModuloFiltroProceso.validarExcel("Gestionar procesos");
 	}
 	
 	@After

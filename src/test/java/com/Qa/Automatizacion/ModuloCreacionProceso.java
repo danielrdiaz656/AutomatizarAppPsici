@@ -80,7 +80,7 @@ public class ModuloCreacionProceso extends Base {
 	public void nombreProceso () throws InterruptedException{
 		
 		Thread.sleep(1000);
-		type("Prueba Automatizada Qa",nameLocator);
+		type("Automatizada Qa",nameLocator);
 
 		
 	}

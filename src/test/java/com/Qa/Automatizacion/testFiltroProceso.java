@@ -96,8 +96,8 @@ public class testFiltroProceso {
 	@After
 	public void tearDown() throws Exception {
 		
-		//Thread.sleep(1000);
-		//driver.quit();	
+		Thread.sleep(1000);
+	    driver.quit();	
 		
 	}
 	

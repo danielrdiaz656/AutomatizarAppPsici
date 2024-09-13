@@ -2,6 +2,7 @@ package com.Qa.Automatizacion;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -89,10 +90,14 @@ public class testFiltroHistorial {
 		ModuloFiltroHistorial.validarExcel("Historial de Agendamientos");
 		
 		
-		
-		
-		
-		
+	}
+	
+	@After
+	public void tearDown() throws Exception {
+
+		Thread.sleep(1000);
+		driver.quit();	
+		 
 	}
 
 }

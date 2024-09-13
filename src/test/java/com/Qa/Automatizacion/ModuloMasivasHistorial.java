@@ -1,5 +1,6 @@
 package com.Qa.Automatizacion;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -13,15 +14,43 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class ModuloMasivasHistorial extends Base{
 	
-    //private WebDriver driver;
+
+
+	//private WebDriver driver;
     private BrowserMobProxy proxy;
+    // Localizadores de envio masivo de correo
     
 	By  procesoSeleccion = By.xpath("//a[span='Procesos de Selección']");
 	By buttonHistorial = By.xpath("//a[contains(text(), 'Historial Agendamientos')]");
 	By checkid = By.id("selTodos");
 	By masivoCorreos = By.xpath("//button[contains(@onclick,'enviarCorreosMasico()' )]");
 	By aceptarMasivo = By.xpath("//button[contains(@class,'swal2-confirm btn btn-primary mx-2' )]");
-
+	// Aceptar Masivo
+    By locatorEnvio =  By.xpath("//div[@class ='swal2-popup swal2-modal swal2-icon-success swal2-show']");
+	By aceptMasivo = By.xpath("//button[@class ='swal2-confirm btn btn-primary mx-2']");
+	
+	//Localizadores de Procesar pruebas Masivas.
+	By clickProcesar = By.xpath("//button[@onclick=\"procesarMasivo()\"]");
+	By locatorModalProcess = By.xpath("//div[@class = 'ui-dialog-content ui-widget-content']");
+	By cofimarLocator = By.xpath("//button[@class ='btn btn-alianza btn-small']");
+	
+	//Localizadores de Editar Agendamientos.
+	By clickAgendamineto = By.xpath("//button[@onclick=\"reprogramarMasivo()\"]");
+	By clickCalendario =  By.xpath("(//button[@class=\"btn btn-outline-secondary\"])[4]");
+	
+	//Localizador calendario.
+	
+	By sigueinteMes = By.xpath("(//th[@class = 'next'])[1]");
+	By guardarcambios = By.xpath("//button[@class = 'btn btn-alianza btn-small']");
+	
+	
+	//Localizadores para eliminar agendas.
+	
+	By eliminaragendas = By.xpath("//button[@onclick=\"eliminarMasivo()\"]");
+    By idDelete = By.id("textEliminar");
+    By buttonDelete = By.xpath("//button[@class=\"btn btn-alianza btn-small\"]");
+    
+	
 	public ModuloMasivasHistorial(WebDriver driver) {
 		super(driver);
 		// TODO Auto-generated constructor stub
@@ -66,7 +95,7 @@ public class ModuloMasivasHistorial extends Base{
 		
 		click(aceptarMasivo);
 	}
-	
+/*	
 	   // Constructor: Inicia el navegador y el proxy
     public void PaginaProcesos() {
         // Inicia el proxy
@@ -105,8 +134,105 @@ public class ModuloMasivasHistorial extends Base{
             }
         });
     }
+ */   
+    public void testMasivo () {
+    	
+    	WebDriverWait wait =  new WebDriverWait(driver,20);
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(locatorEnvio));
+    	
+    	click(aceptMasivo);
+    	
+    }
+    
+    public void testProcesar () {
+    	click(clickProcesar);
+    	WebDriverWait wait = new WebDriverWait (driver,20);
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(locatorModalProcess));
+    	
+    	click(cofimarLocator);
+    }
+    
+    public void validarProcesar() {
+    	
+    	
+    	
+    	WebDriverWait wait = new WebDriverWait(driver,10);
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(locatorEnvio));
+    	
+    	click(aceptMasivo);
+    	
+    }
+    
+    public void selectMes () {
+    	
+    	WebDriverWait wait =  new WebDriverWait(driver,10);
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(clickAgendamineto));
+    	
+    	click(clickAgendamineto);
+    	
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(clickCalendario));
+    	click(clickCalendario);
+    	
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(sigueinteMes));
+    	click(sigueinteMes);
+    
+    	
+    
+    
+    	
+    }
+    
+
+    public void seleccionarDia(String dia) {
+        // Localizador dinámico para seleccionar el día deseado en el calendario
+        By seleccionarDia = By.xpath("//td[@data-action='selectDay' and text()='" + dia + "']");
+        
+        // Espera hasta que el día esté visible y luego haz clic
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(seleccionarDia));
+
+        // Hacer clic en el día seleccionado
+        driver.findElement(seleccionarDia).click();
+    }
+    
+    
+    public void guardarFecha() throws InterruptedException {
+    	
+    	click(guardarcambios);
+    	Thread.sleep(3000);
+    }
+    
+    public void eliminarAgendas () {
+    	
+    	WebDriverWait wait = new WebDriverWait(driver,10);
+    	wait.until(ExpectedConditions.visibilityOfElementLocated(eliminaragendas));
+    	
+    	click(eliminaragendas);
+    }
+
+    
+	public void deleteInput (String delete) { 
+		
+		aplicarFiltroApp(idDelete,delete);
+	}
 	
+	public void eliminar() {
+		
 	
-	
+		click(buttonDelete);
+		
+	}
+
+	public void aceptarAlert () throws InterruptedException {
+		Thread.sleep(1000);
+		WebDriverWait wait = new WebDriverWait(driver,10);
+	    wait.until(ExpectedConditions.alertIsPresent());
+
+	    // Cambiar el foco al alert y aceptarlo
+	    Alert alert = driver.switchTo().alert();
+	    alert.accept();
+		
+	}
+
 
 }

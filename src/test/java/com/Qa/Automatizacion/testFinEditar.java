@@ -18,8 +18,8 @@ public class testFinEditar {
 		
 		FechaFinEditar = new FechaFinEditar (driver);
 		driver = FechaFinEditar.chromeDriverConnection();
-		FechaFinEditar.visit("https://app.psicoalianza.com/auth/loginvoc?username=Danielproduccion&password=danieleltravieso");
-		
+		//FechaFinEditar.visit("https://demo.psicoalianza.com/auth/loginvoc?username=Daniel_4514304&password=Daniel123-");
+		FechaFinEditar.visit("https://app.psicoalianza.com/auth/loginvoc?username=Susana01&password=El amor es uno de los sentimientos más bello");
 	}
 
 
@@ -30,7 +30,7 @@ public class testFinEditar {
 		FechaFinEditar.gestionarProceso();
 		FechaFinEditar.vermasApp();
 		FechaFinEditar.editarClic();
-		FechaFinEditar.seleccionarFecha(driver, "31-08-2024");
+		FechaFinEditar.seleccionarFecha(driver, "30-08-2025");
 		FechaFinEditar.ubucacionModalQa();
 		FechaFinEditar.acpertartCambio();
 		

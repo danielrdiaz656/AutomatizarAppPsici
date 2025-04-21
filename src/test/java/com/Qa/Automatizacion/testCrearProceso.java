@@ -21,8 +21,8 @@ public class testCrearProceso {
 		
 		ModuloCreacionProceso = new ModuloCreacionProceso(driver);
 		driver = ModuloCreacionProceso.chromeDriverConnection();
-		ModuloCreacionProceso.visit("https://app.psicoalianza.com/auth/loginvoc?username=Danielproduccion&password=danieleltravieso");
-		
+		//ModuloCreacionProceso.visit("https://app.psicoalianza.com/auth/loginvoc?username=Danielproduccion&password=danieleltravieso");
+		ModuloCreacionProceso.visit("https://app.psicoalianza.com/auth/loginvoc?username=Susana01&password=El amor es uno de los sentimientos más bello");
 	}
  
 
@@ -36,7 +36,7 @@ public class testCrearProceso {
 		
 		/*Completar informacion*/
 		ModuloCreacionProceso.nombreProceso();
-		ModuloCreacionProceso.setFechaCierre("30/09/2024");
+		ModuloCreacionProceso.setFechaCierre("15/05/2025");
 		ModuloCreacionProceso.numeroVacantesApp();
 		assertEquals(ModuloCreacionProceso.estadoDropdown(),"Activo");
 		ModuloCreacionProceso.registroFotograficoApp();

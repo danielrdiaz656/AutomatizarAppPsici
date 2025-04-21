@@ -21,8 +21,8 @@ public class testFiltroProceso {
 		
 		ModuloFiltroProceso =  new ModuloFiltroProceso(driver);
 		driver = ModuloFiltroProceso.chromeDriverConnection();
+		// ModuloFiltroProceso.visit("https://demo.psicoalianza.com/auth/loginvoc?username=Daniel_4514304&password=Daniel123-");
 		ModuloFiltroProceso.visit("https://app.psicoalianza.com/auth/loginvoc?username=Danielproduccion&password=danieleltravieso");
-		
 		
 		
 	}

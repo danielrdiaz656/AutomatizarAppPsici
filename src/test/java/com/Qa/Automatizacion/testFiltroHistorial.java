@@ -19,6 +19,7 @@ public class testFiltroHistorial {
 		
 		ModuloFiltroHistorial = new ModuloFiltroHistorial (driver);
 		driver = ModuloFiltroHistorial.chromeDriverConnection();
+		//ModuloFiltroHistorial.visit("https://demo.psicoalianza.com/auth/loginvoc?username=Daniel_4514304&password=Daniel123-");
 		ModuloFiltroHistorial.visit("https://app.psicoalianza.com/auth/loginvoc?username=Danielproduccion&password=danieleltravieso");
 		
 	}
@@ -38,8 +39,8 @@ public class testFiltroHistorial {
 		ModuloFiltroHistorial.validarId("2593996");
 		
 		ModuloFiltroHistorial.historialClic();
-		ModuloFiltroHistorial.filtroName("Linda  Mendez");
-		ModuloFiltroHistorial.validarName("Linda Mendez");
+		ModuloFiltroHistorial.filtroName("Daniel  Diaz");
+		ModuloFiltroHistorial.validarName("Daniel Diaz");
 		
 		ModuloFiltroHistorial.historialClic();
 		ModuloFiltroHistorial.filtroDocument("564656");	

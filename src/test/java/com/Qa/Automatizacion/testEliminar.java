@@ -20,8 +20,8 @@ public class testEliminar {
 		
 		ModuloEliminar = new ModuloEliminar(driver);
 		driver = ModuloEliminar.chromeDriverConnection();
+		//ModuloEliminar.visit("https://demo.psicoalianza.com/auth/loginvoc?username=Daniel_4514304&password=Daniel123-");
 		ModuloEliminar.visit("https://app.psicoalianza.com/auth/loginvoc?username=Danielproduccion&password=danieleltravieso");
-		
 	}
 	
 	@Test

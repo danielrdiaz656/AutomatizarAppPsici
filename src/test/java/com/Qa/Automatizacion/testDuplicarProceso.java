@@ -17,8 +17,8 @@ public class testDuplicarProceso {
 		
 	ModuloDuplicar = new ModuloDuplicar(driver);
 	driver = ModuloDuplicar.chromeDriverConnection();
-	ModuloDuplicar.visit("https://app.psicoalianza.com/auth/loginvoc?username=Danielproduccion&password=danieleltravieso");	
-		
+	//ModuloDuplicar.visit("https://demo.psicoalianza.com/auth/loginvoc?username=Daniel_4514304&password=Daniel123-");
+	ModuloDuplicar.visit("https://app.psicoalianza.com/auth/loginvoc?username=Danielproduccion&password=danieleltravieso");
 		
 	}
 	
@@ -30,7 +30,7 @@ public class testDuplicarProceso {
 		ModuloDuplicar.vermasApp();
 		ModuloDuplicar.duplictedBtn();
 		ModuloDuplicar.nombreDuplicarProceso();
-		ModuloDuplicar.changeDate("12/09/2024");
+		ModuloDuplicar.changeDate("16/02/2025");
 		ModuloDuplicar.enviarDuplicado();
 		ModuloDuplicar.enviarDuplicado();
 		ModuloDuplicar.enviarText();

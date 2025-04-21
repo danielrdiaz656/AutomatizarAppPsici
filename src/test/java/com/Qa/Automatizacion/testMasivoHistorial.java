@@ -19,8 +19,8 @@ public class testMasivoHistorial {
 	
 		ModuloMasivasHistorial = new ModuloMasivasHistorial(driver);
 		driver = ModuloMasivasHistorial.chromeDriverConnection();
+		//ModuloMasivasHistorial.visit("https://demo.psicoalianza.com/auth/loginvoc?username=Daniel_4514304&password=Daniel123-");
 		ModuloMasivasHistorial.visit("https://app.psicoalianza.com/auth/loginvoc?username=Danielproduccion&password=danieleltravieso");
-		
 		
 		
 	}

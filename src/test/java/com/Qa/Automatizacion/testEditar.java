@@ -20,8 +20,8 @@ public class testEditar {
 		
 		ModuloEditarProceso = new ModuloEditarProceso(driver);
 		driver = ModuloEditarProceso.chromeDriverConnection();
+		//ModuloEditarProceso.visit("https://demo.psicoalianza.com/auth/loginvoc?username=Daniel_4514304&password=Daniel123-");
 		ModuloEditarProceso.visit("https://app.psicoalianza.com/auth/loginvoc?username=Danielproduccion&password=danieleltravieso");
-		
 	}
 
 
@@ -34,7 +34,7 @@ public class testEditar {
 		ModuloEditarProceso.editarclickApp();
 		
 		ModuloEditarProceso.nombreProceso();
-		ModuloEditarProceso.setFechaCierre("02/10/2024");
+		ModuloEditarProceso.setFechaCierre("17/06/2025");
 		ModuloEditarProceso.numeroVacantesApp();
 		ModuloEditarProceso.registroVideo();
 		ModuloEditarProceso.registroVideo();
@@ -106,7 +106,7 @@ public class testEditar {
 	    /*Ten DISC Plus*/
 		Thread.sleep(2000);
 		ModuloEditarProceso.selectDropdownpruebas("Ten DISC Plus (Personalidad, Riesgos, Competencias Transversales y Específicas.)");
-		ModuloEditarProceso.selectPerfil("Todas las competencias");
+		ModuloEditarProceso.selectPerfil("Nombre 2025");
 		ModuloEditarProceso.porcentajePruebas("10");
         String valorActual6 = ModuloEditarProceso.obtenerValorPorcentaje();
         assertEquals("10", valorActual6);
